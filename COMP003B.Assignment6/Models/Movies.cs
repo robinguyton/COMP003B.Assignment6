@@ -3,14 +3,16 @@
 namespace COMP003B.Assignment6.Models
 {
     public class Movies
+
     {
-        public int ActorId { get; set; }
+        public int Id { get; set; }
+        public int MovieID { get; set; }
 
         [Required]
         public required string Name { get; set; }
 
 
-        public virtual ICollection<Actor>? Actors { get; set; }
+        public virtual ICollection<Actors>? Actors { get; set; }
 
     }
 }
