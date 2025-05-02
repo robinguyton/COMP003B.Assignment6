@@ -93,7 +93,7 @@ namespace COMP003B.Assignment6.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("DirectorID,Name")] Director director)
+        public async Task<IActionResult> Edit(int id, [Bind("DirectorID,Name")] Directors director)
         {
             if (id != director.DirectorID)
             {
