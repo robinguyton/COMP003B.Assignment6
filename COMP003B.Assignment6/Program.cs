@@ -17,6 +17,7 @@ using Microsoft.EntityFrameworkCore;
 
         builder.Services.AddDbContext<WebDevAcademyContext>(options =>
             options.UseSqlServer("Name=ConnectionStrings:DefaultConnection"));
+
         var app = builder.Build();
 
             // Configure the HTTP request pipeline.
