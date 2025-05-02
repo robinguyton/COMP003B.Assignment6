@@ -2,7 +2,7 @@
 
 namespace COMP003B.Assignment6.Models
 {
-    public class Director
+    public class Directors
 
     {
         public int Id { get; set; } 
@@ -11,6 +11,6 @@ namespace COMP003B.Assignment6.Models
              [Required]
             public string Name { get; set; }
 
-            public virtual ICollection<Director>? Directors { get; set; }
+            public virtual ICollection<Directors>? Director { get; set; }
         }
     }

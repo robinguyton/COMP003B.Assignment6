@@ -1,4 +1,4 @@
-﻿@model IEnumerable<COMP003B.Assignment6.Models.Director>
+﻿@model IEnumerable<COMP003B.Assignment6.Models.Directors>
 
 @{
     ViewData["Title"] = "Index";
@@ -26,9 +26,9 @@
                 @Html.DisplayFor(modelItem => item.Name)
             </td>
             <td>
-                <a asp-action="Edit" asp-route-id="@item.DirectorID">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.DirectorID">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.DirectorID">Delete</a>
+                <a asp-action="Edit" asp-route-id="@item.Director">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.Director">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.Director">Delete</a>
             </td>
         </tr>
 }

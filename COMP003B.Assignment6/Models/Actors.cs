@@ -8,7 +8,7 @@
         public int ActorId { get; set; }
         public int DirectorId { get; set; }
         public virtual Actors? Actor { get; set; }
-        public virtual Director? Director { get; set; }
+        public virtual Directors? Director { get; set; }
 
         public virtual ICollection<Movies>? Movies { get; set; }
 

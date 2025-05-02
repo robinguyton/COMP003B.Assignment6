@@ -12,7 +12,7 @@ namespace COMP003B.Assignment6.Models
         public required string Name { get; set; }
 
 
-        public virtual ICollection<Actors>? Actors { get; set; }
+        public virtual ICollection<Movies>? Movie { get; set; }
 
     }
 }
