@@ -14,6 +14,8 @@ namespace COMP003B.Assignment6.Controllers
     {
         private readonly WebDevAcademyContext _context;
 
+        public string? Director { get; private set; }
+
         public DirectorsController(WebDevAcademyContext context)
         {
             _context = context;
@@ -45,7 +47,7 @@ namespace COMP003B.Assignment6.Controllers
                              join m in _context.Movies on d.DirectorID equals m.MovieID
                              join a in _context.Actors on m.MovieID equals a.ActorId
                              where d.DirectorID == id
-                             select d;
+                             select a;
 
             return View(director);
         }
@@ -61,15 +63,15 @@ namespace COMP003B.Assignment6.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("DirectorID,Name")] Directors director)
+        public async Task<IActionResult> Create([Bind("DirectorID,Name")] Directors Director)
         {
             if (ModelState.IsValid)
             {
-                _context.Add(director);
+                _context.Add(Director);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            return View(director);
+            return View(Director);
         }
 
         // GET: Directors/Edit/5
@@ -85,7 +87,7 @@ namespace COMP003B.Assignment6.Controllers
             {
                 return NotFound();
             }
-            return View(director);
+            return View(Director);
         }
 
         // POST: Directors/Edit/5
@@ -93,9 +95,9 @@ namespace COMP003B.Assignment6.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("DirectorID,Name")] Directors director)
+        public async Task<IActionResult> Edit(int id, [Bind("DirectorID,Name")] Directors Director)
         {
-            if (id != director.DirectorID)
+            if (id != Director.DirectorID)
             {
                 return NotFound();
             }
@@ -104,12 +106,12 @@ namespace COMP003B.Assignment6.Controllers
             {
                 try
                 {
-                    _context.Update(director);
+                    _context.Update(Director);
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!DirectorExists(director.DirectorID))
+                    if (!DirectorExists(Director.DirectorID))
                     {
                         return NotFound();
                     }
@@ -120,7 +122,7 @@ namespace COMP003B.Assignment6.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            return View(director);
+            return View(Director);
         }
 
         // GET: Directors/Delete/5

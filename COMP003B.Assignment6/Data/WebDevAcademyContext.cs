@@ -1,5 +1,6 @@
-﻿using COMP003B.Assignment6.Models;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
+using COMP003B.Assignment6.Models;
+
 
 namespace COMP003B.Assignment6.Data
 {
@@ -12,5 +13,7 @@ namespace COMP003B.Assignment6.Data
         public DbSet<Actors> Actors { get; set; }
         public DbSet<Directors> Directors { get; set; }
         public DbSet<Movies> Movies { get; set; }
+
+
     }
 }
