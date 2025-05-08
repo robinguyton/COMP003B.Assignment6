@@ -29,13 +29,13 @@ namespace COMP003B.Assignment6.Controllers
         // GET: Actors/Details/5
         public async Task<IActionResult> Details(int? id)
         {
-            if (id == null)
+            if (id == null) 
             {
                 return NotFound();
             }
 
             var actors = await _context.Actors
-                .Include(a => a.Actor)
+                .Include(a => a.ActorID)
                 .Include(a => a.Director)
                 .FirstOrDefaultAsync(m => m.ActorID == id);
             if (actors == null)
@@ -47,8 +47,8 @@ namespace COMP003B.Assignment6.Controllers
 
 
             ViewBag.Movies = from a in _context.Actors
-                             join m in _context.Movies on a.ActorID equals m.ActorID
-                             join d in _context.Directors on a.DirectorID equals d.DirectorID
+                             join m in _context.Movies on a.ActorID equals m.Actor
+                             join d in _context.Directors on a.Director equals d.DirectorID
                              where a.ActorID == id
                              select m;
 
@@ -69,7 +69,7 @@ namespace COMP003B.Assignment6.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,ActorId,DirectorId")] Actors actors)
+        public async Task<IActionResult> Create([Bind("Id,ActorId,DirectorId")] Actor actors)
         {
             if (ModelState.IsValid)
             {
@@ -78,7 +78,7 @@ namespace COMP003B.Assignment6.Controllers
                 return RedirectToAction(nameof(Index));
             }
             ViewData["ActorId"] = new SelectList(_context.Actors, "Id", "Id", actors.ActorID);
-            ViewData["DirectorId"] = new SelectList(_context.Directors, "DirectorID", "Name", actors.DirectorID);
+            ViewData["DirectorId"] = new SelectList(_context.Directors, "DirectorID", "Name", actors.Director);
             return View(actors);
         }
 
@@ -96,7 +96,7 @@ namespace COMP003B.Assignment6.Controllers
                 return NotFound();
             }
             ViewData["ActorId"] = new SelectList(_context.Actors, "Id", "Id", actors.ActorID);
-            ViewData["DirectorId"] = new SelectList(_context.Directors, "DirectorID", "Name", actors.DirectorID);
+            ViewData["DirectorId"] = new SelectList(_context.Directors, "DirectorID", "Name", actors.Director);
             return View(actors);
         }
 
@@ -105,7 +105,7 @@ namespace COMP003B.Assignment6.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,ActorId,DirectorId")] Actors actors)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,ActorId,DirectorId")] Actor actors)
         {
             if (id != actors.ActorID)
             {
@@ -133,7 +133,7 @@ namespace COMP003B.Assignment6.Controllers
                 return RedirectToAction(nameof(Index));
             }
             ViewData["ActorId"] = new SelectList(_context.Actors, "Id", "Id", actors.ActorID);
-            ViewData["DirectorId"] = new SelectList(_context.Directors, "DirectorID", "Name", actors.DirectorID);
+            ViewData["DirectorId"] = new SelectList(_context.Directors, "DirectorID", "Name", actors.Director);
             return View(actors);
         }
 

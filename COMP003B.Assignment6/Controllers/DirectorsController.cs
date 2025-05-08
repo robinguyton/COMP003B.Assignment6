@@ -63,7 +63,7 @@ namespace COMP003B.Assignment6.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("DirectorID,Name")] Directors Director)
+        public async Task<IActionResult> Create([Bind("DirectorID,Name")] Director Director)
         {
             if (ModelState.IsValid)
             {
@@ -95,7 +95,7 @@ namespace COMP003B.Assignment6.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("DirectorID,Name")] Directors Director)
+        public async Task<IActionResult> Edit(int id, [Bind("DirectorID,Name")] Director Director)
         {
             if (id != Director.DirectorID)
             {

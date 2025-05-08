@@ -4,19 +4,15 @@ using Microsoft.EntityFrameworkCore;
 
 namespace COMP003B.Assignment6.Models
 {
-    public class Directors
+    public class Director
 
     {
         [Key] public int DirectorID { get; set; }
 
-        public int MovieID { get; set; }
-        public int ActorID { get; set; }
+        public int Name { get; set; }
 
+        public int Movie { get; set; }
 
-
-
-             [Required]
-            public string Name { get; set; }
 
         }
     }
