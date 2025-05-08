@@ -14,6 +14,9 @@ namespace COMP003B.Assignment6.Data
         public DbSet<Directors> Directors { get; set; }
         public DbSet<Movies> Movies { get; set; }
 
+        public  DbSet  <Actors> ActorID { get; set; }
+
+
 
     }
 }

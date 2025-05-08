@@ -8,6 +8,58 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Include="obj\Debug\net8.0\.NETCoreApp,Version=v8.0.AssemblyAttributes.cs" />
+    <Compile Include="obj\Debug\net8.0\COMP003B.Assignment6.AssemblyInfo.cs" />
+    <Compile Include="obj\Debug\net8.0\COMP003B.Assignment6.GlobalUsings.g.cs" />
+    <Compile Include="obj\Debug\net8.0\COMP003B.Assignment6.RazorAssemblyInfo.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="obj\COMP003B.Assignment6.csproj.nuget.dgspec.json" />
+    <Content Include="obj\Debug\net8.0\ApiEndpoints.json" />
+    <Content Include="obj\Debug\net8.0\COMP003B.Assignment6.csproj.FileListAbsolute.txt" />
+    <Content Include="obj\Debug\net8.0\COMP003B.Assignment6.sourcelink.json" />
+    <Content Include="obj\Debug\net8.0\scopedcss\bundle\COMP003B.Assignment6.styles.css" />
+    <Content Include="obj\Debug\net8.0\scopedcss\projectbundle\COMP003B.Assignment6.bundle.scp.css" />
+    <Content Include="obj\Debug\net8.0\scopedcss\Views\Shared\_Layout.cshtml.rz.scp.css" />
+    <Content Include="obj\Debug\net8.0\staticwebassets.build.endpoints.json" />
+    <Content Include="obj\Debug\net8.0\staticwebassets.build.json" />
+    <Content Include="obj\Debug\net8.0\staticwebassets.development.json" />
+    <Content Include="obj\Debug\net8.0\staticwebassets.pack.json" />
+    <Content Include="obj\Debug\net8.0\staticwebassets.references.upToDateCheck.txt" />
+    <Content Include="obj\Debug\net8.0\staticwebassets.removed.txt" />
+    <Content Include="obj\Debug\net8.0\staticwebassets.upToDateCheck.txt" />
+    <Content Include="obj\project.assets.json" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="obj\COMP003B.Assignment6.csproj.EntityFrameworkCore.targets" />
+    <None Include="obj\COMP003B.Assignment6.csproj.nuget.g.props" />
+    <None Include="obj\COMP003B.Assignment6.csproj.nuget.g.targets" />
+    <None Include="obj\Debug\net8.0\apphost.exe" />
+    <None Include="obj\Debug\net8.0\COMP003B.35465182.Up2Date" />
+    <None Include="obj\Debug\net8.0\COMP003B.Assignment6.AssemblyInfoInputs.cache" />
+    <None Include="obj\Debug\net8.0\COMP003B.Assignment6.assets.cache" />
+    <None Include="obj\Debug\net8.0\COMP003B.Assignment6.csproj.AssemblyReference.cache" />
+    <None Include="obj\Debug\net8.0\COMP003B.Assignment6.csproj.BuildWithSkipAnalyzers" />
+    <None Include="obj\Debug\net8.0\COMP003B.Assignment6.csproj.CoreCompileInputs.cache" />
+    <None Include="obj\Debug\net8.0\COMP003B.Assignment6.dll" />
+    <None Include="obj\Debug\net8.0\COMP003B.Assignment6.GeneratedMSBuildEditorConfig.editorconfig" />
+    <None Include="obj\Debug\net8.0\COMP003B.Assignment6.genruntimeconfig.cache" />
+    <None Include="obj\Debug\net8.0\COMP003B.Assignment6.MvcApplicationPartsAssemblyInfo.cache" />
+    <None Include="obj\Debug\net8.0\COMP003B.Assignment6.pdb" />
+    <None Include="obj\Debug\net8.0\COMP003B.Assignment6.RazorAssemblyInfo.cache" />
+    <None Include="obj\Debug\net8.0\refint\COMP003B.Assignment6.dll" />
+    <None Include="obj\Debug\net8.0\ref\COMP003B.Assignment6.dll" />
+    <None Include="obj\Debug\net8.0\staticwebassets\msbuild.build.COMP003B.Assignment6.props" />
+    <None Include="obj\Debug\net8.0\staticwebassets\msbuild.buildMultiTargeting.COMP003B.Assignment6.props" />
+    <None Include="obj\Debug\net8.0\staticwebassets\msbuild.buildTransitive.COMP003B.Assignment6.props" />
+    <None Include="obj\Debug\net8.0\staticwebassets\msbuild.COMP003B.Assignment6.Microsoft.AspNetCore.StaticWebAssetEndpoints.props" />
+    <None Include="obj\Debug\net8.0\staticwebassets\msbuild.COMP003B.Assignment6.Microsoft.AspNetCore.StaticWebAssets.props" />
+    <None Include="obj\project.nuget.cache" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="9.0.4" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="9.0.4" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="9.0.4">

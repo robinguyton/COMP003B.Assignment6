@@ -11,6 +11,5 @@ namespace COMP003B.Assignment6.Models
              [Required]
             public string Name { get; set; }
 
-            public virtual ICollection<Directors>? Director { get; set; }
         }
     }

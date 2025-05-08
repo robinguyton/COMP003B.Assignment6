@@ -2,6 +2,9 @@
 {
     public class Actors
     {
+        internal object ActorID;
+        internal object DirectorID;
+
         public int Id { get; set; }
 
         public required string Name { get; set; }
@@ -13,5 +16,6 @@
         public virtual ICollection<Movies>? Movies { get; set; }
 
         public int Oscars { get; set; }
+ 
     }
 }

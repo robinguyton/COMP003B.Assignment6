@@ -22,8 +22,8 @@ namespace COMP003B.Assignment6.Controllers
         // GET: Actors
         public async Task<IActionResult> Index()
         {
-            var webDevAcademyContext = _context.Actors.Include(a => a.Actor).Include(a => a.Director);
-            return View(await webDevAcademyContext.ToListAsync());
+           
+            return View(await _context.Actors.ToListAsync());
         }
 
         // GET: Actors/Details/5
@@ -44,11 +44,14 @@ namespace COMP003B.Assignment6.Controllers
             }
 
         // Get the movies the actors starred in
-        ViewBag.Movies = from a in _context.Actors
-                         join m in _context.Movies on a.ActorId equals m.MovieID    
-                         join d in _context.Directors on a.DirectorId equals d.DirectorID
-                         where a.ActorId == id
-                         select m;
+    
+
+ViewBag.Movies = from a in _context.Actors
+                 join m in _context.Movies on a.Actor equals m.ActorID
+                 join d in _context.Directors on a.DirectorId equals d.DirectorID
+                 where a.Id == id
+                 select m;
+
 
             return View(actors);
         }

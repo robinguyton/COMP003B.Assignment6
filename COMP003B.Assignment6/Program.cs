@@ -1,8 +1,7 @@
-namespace COMP003B.Assignment6;
-
 using COMP003B.Assignment6.Data;
 using Microsoft.EntityFrameworkCore;
 
+namespace COMP003B.Assignment6;
 
     public class Program
     {

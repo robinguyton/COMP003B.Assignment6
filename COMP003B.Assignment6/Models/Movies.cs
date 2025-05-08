@@ -13,6 +13,6 @@ namespace COMP003B.Assignment6.Models
 
 
         public virtual ICollection<Movies>? Movie { get; set; }
-
+        public object ActorID { get; internal set; }
     }
 }
