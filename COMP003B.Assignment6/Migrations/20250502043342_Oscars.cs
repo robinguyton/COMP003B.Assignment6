@@ -33,30 +33,30 @@ namespace COMP003B.Assignment6.Migrations
                 name: "ActorsMovies",
                 columns: table => new
                 {
-                    ActorsId = table.Column<int>(type: "int", nullable: false),
-                    MoviesId = table.Column<int>(type: "int", nullable: false)
+                    ActorID = table.Column<int>(type: "int", nullable: false),
+                    MovieID = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_ActorsMovies", x => new { x.ActorsId, x.MoviesId });
+                    table.PrimaryKey("PK_ActorsMovies", x => new { x.ActorID, x.MovieID });
                     table.ForeignKey(
                         name: "FK_ActorsMovies_Actors_ActorsId",
-                        column: x => x.ActorsId,
+                        column: x => x.ActorID,
                         principalTable: "Actors",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
                         name: "FK_ActorsMovies_Movies_MoviesId",
-                        column: x => x.MoviesId,
+                        column: x => x.MovieID,
                         principalTable: "Movies",
-                        principalColumn: "Id",
+                        principalColumn: "MovieID",
                         onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_ActorsMovies_MoviesId",
+                name: "IX_ActorsMovies_MovieID",
                 table: "ActorsMovies",
-                column: "MoviesId");
+                column: "MovieID");
         }
 
         /// <inheritdoc />
@@ -70,22 +70,22 @@ namespace COMP003B.Assignment6.Migrations
                 table: "Actors");
 
             migrationBuilder.AddColumn<int>(
-                name: "MoviesId",
+                name: "MovieID",
                 table: "Actors",
                 type: "int",
                 nullable: true);
 
             migrationBuilder.CreateIndex(
-                name: "IX_Actors_MoviesId",
+                name: "IX_Actors_MovieID",
                 table: "Actors",
-                column: "MoviesId");
+                column: "MovieID");
 
             migrationBuilder.AddForeignKey(
                 name: "FK_Actors_Movies_MoviesId",
                 table: "Actors",
-                column: "MoviesId",
+                column: "MovieID",
                 principalTable: "Movies",
-                principalColumn: "Id");
+                principalColumn: "MovieID");
         }
     }
 }

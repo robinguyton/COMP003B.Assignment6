@@ -22,7 +22,7 @@ namespace COMP003B.Assignment6.Controllers
         // GET: Actors
         public async Task<IActionResult> Index()
         {
-           
+
             return View(await _context.Actors.ToListAsync());
         }
 
@@ -37,20 +37,20 @@ namespace COMP003B.Assignment6.Controllers
             var actors = await _context.Actors
                 .Include(a => a.Actor)
                 .Include(a => a.Director)
-                .FirstOrDefaultAsync(m => m.Id == id);
+                .FirstOrDefaultAsync(m => m.ActorID == id);
             if (actors == null)
             {
                 return NotFound();
             }
 
-        // Get the movies the actors starred in
-    
+            // Get the movies the actors starred in
 
-ViewBag.Movies = from a in _context.Actors
-                 join m in _context.Movies on a.Actor equals m.ActorID
-                 join d in _context.Directors on a.DirectorId equals d.DirectorID
-                 where a.Id == id
-                 select m;
+
+            ViewBag.Movies = from a in _context.Actors
+                             join m in _context.Movies on a.ActorID equals m.ActorID
+                             join d in _context.Directors on a.DirectorID equals d.DirectorID
+                             where a.ActorID == id
+                             select m;
 
 
             return View(actors);
@@ -77,8 +77,8 @@ ViewBag.Movies = from a in _context.Actors
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["ActorId"] = new SelectList(_context.Actors, "Id", "Id", actors.ActorId);
-            ViewData["DirectorId"] = new SelectList(_context.Directors, "DirectorID", "Name", actors.DirectorId);
+            ViewData["ActorId"] = new SelectList(_context.Actors, "Id", "Id", actors.ActorID);
+            ViewData["DirectorId"] = new SelectList(_context.Directors, "DirectorID", "Name", actors.DirectorID);
             return View(actors);
         }
 
@@ -95,8 +95,8 @@ ViewBag.Movies = from a in _context.Actors
             {
                 return NotFound();
             }
-            ViewData["ActorId"] = new SelectList(_context.Actors, "Id", "Id", actors.ActorId);
-            ViewData["DirectorId"] = new SelectList(_context.Directors, "DirectorID", "Name", actors.DirectorId);
+            ViewData["ActorId"] = new SelectList(_context.Actors, "Id", "Id", actors.ActorID);
+            ViewData["DirectorId"] = new SelectList(_context.Directors, "DirectorID", "Name", actors.DirectorID);
             return View(actors);
         }
 
@@ -107,7 +107,7 @@ ViewBag.Movies = from a in _context.Actors
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, [Bind("Id,ActorId,DirectorId")] Actors actors)
         {
-            if (id != actors.Id)
+            if (id != actors.ActorID)
             {
                 return NotFound();
             }
@@ -121,7 +121,7 @@ ViewBag.Movies = from a in _context.Actors
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!ActorsExists(actors.Id))
+                    if (!ActorsExists(actors.ActorID))
                     {
                         return NotFound();
                     }
@@ -132,11 +132,11 @@ ViewBag.Movies = from a in _context.Actors
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["ActorId"] = new SelectList(_context.Actors, "Id", "Id", actors.ActorId);
-            ViewData["DirectorId"] = new SelectList(_context.Directors, "DirectorID", "Name", actors.DirectorId);
+            ViewData["ActorId"] = new SelectList(_context.Actors, "Id", "Id", actors.ActorID);
+            ViewData["DirectorId"] = new SelectList(_context.Directors, "DirectorID", "Name", actors.DirectorID);
             return View(actors);
         }
-        
+
         // GET: Actors/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
@@ -148,7 +148,7 @@ ViewBag.Movies = from a in _context.Actors
             var actors = await _context.Actors
                 .Include(a => a.Actor)
                 .Include(a => a.Director)
-                .FirstOrDefaultAsync(m => m.Id == id);
+                .FirstOrDefaultAsync(m => m.ActorID == id);
             if (actors == null)
             {
                 return NotFound();
@@ -174,7 +174,7 @@ ViewBag.Movies = from a in _context.Actors
 
         private bool ActorsExists(int id)
         {
-            return _context.Actors.Any(e => e.Id == id);
+            return _context.Actors.Any(e => e.ActorID == id);
         }
     }
 }

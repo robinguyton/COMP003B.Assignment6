@@ -34,7 +34,7 @@ namespace COMP003B.Assignment6.Controllers
             }
 
             var movies = await _context.Movies
-                .FirstOrDefaultAsync(m => m.Id == id);
+                .FirstOrDefaultAsync(m => m.MovieID == id);
             if (movies == null)
             {
                 return NotFound();
@@ -88,7 +88,7 @@ namespace COMP003B.Assignment6.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, [Bind("Id,MovieID,Name")] Movies movies)
         {
-            if (id != movies.Id)
+            if (id != movies.MovieID)
             {
                 return NotFound();
             }
@@ -102,7 +102,7 @@ namespace COMP003B.Assignment6.Controllers
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!MoviesExists(movies.Id))
+                    if (!MoviesExists(movies.MovieID))
                     {
                         return NotFound();
                     }
@@ -125,7 +125,7 @@ namespace COMP003B.Assignment6.Controllers
             }
 
             var movies = await _context.Movies
-                .FirstOrDefaultAsync(m => m.Id == id);
+                .FirstOrDefaultAsync(m => m.MovieID == id);
             if (movies == null)
             {
                 return NotFound();
@@ -151,7 +151,7 @@ namespace COMP003B.Assignment6.Controllers
 
         private bool MoviesExists(int id)
         {
-            return _context.Movies.Any(e => e.Id == id);
+            return _context.Movies.Any(e => e.MovieID == id);
         }
     }
 }

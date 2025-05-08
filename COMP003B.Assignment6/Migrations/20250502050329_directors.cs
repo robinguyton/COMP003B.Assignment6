@@ -22,42 +22,42 @@ namespace COMP003B.Assignment6.Migrations
                 table: "Directors");
 
             migrationBuilder.AddColumn<int>(
-                name: "ActorsId",
+                name: "ActorID",
                 table: "Movies",
                 type: "int",
                 nullable: true);
 
             migrationBuilder.AddColumn<int>(
-                name: "MoviesId",
+                name: "MovieID",
                 table: "Movies",
                 type: "int",
                 nullable: true);
 
             migrationBuilder.AddColumn<int>(
-                name: "DirectorsId",
+                name: "DirectorID",
                 table: "Directors",
                 type: "int",
                 nullable: true);
 
             migrationBuilder.CreateIndex(
-                name: "IX_Movies_ActorsId",
+                name: "IX_Movies_ActorID",
                 table: "Movies",
                 column: "ActorsId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Movies_MoviesId",
+                name: "IX_Movies_MovieID",
                 table: "Movies",
                 column: "MoviesId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Directors_DirectorsId",
+                name: "IX_Directors_DirectorID",
                 table: "Directors",
-                column: "DirectorsId");
+                column: "DirectorID");
 
             migrationBuilder.AddForeignKey(
-                name: "FK_Directors_Directors_DirectorsId",
+                name: "FK_Directors_Directors_DirectorID",
                 table: "Directors",
-                column: "DirectorsId",
+                column: "DirectorID",
                 principalTable: "Directors",
                 principalColumn: "Id");
 

@@ -40,14 +40,14 @@ namespace COMP003B.Assignment6.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Movies", x => x.Id);
+                    table.PrimaryKey("PK_Movies", x => x.MovieID);
                 });
 
             migrationBuilder.CreateTable(
                 name: "Actors",
                 columns: table => new
                 {
-                    Id = table.Column<int>(type: "int", nullable: false)
+                    ActorID = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     ActorId = table.Column<int>(type: "int", nullable: false),
@@ -56,15 +56,15 @@ namespace COMP003B.Assignment6.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Actors", x => x.Id);
+                    table.PrimaryKey("PK_Actors", x => x.ActorID);
                     table.ForeignKey(
-                        name: "FK_Actors_Actors_ActorId",
+                        name: "FK_Actors_Actors_ActorID",
                         column: x => x.ActorId,
                         principalTable: "Actors",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_Actors_Directors_DirectorId",
+                        name: "FK_Actors_Directors_DirectorID",
                         column: x => x.DirectorId,
                         principalTable: "Directors",
                         principalColumn: "DirectorID",

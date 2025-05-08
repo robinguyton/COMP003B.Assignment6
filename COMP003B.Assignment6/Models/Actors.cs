@@ -1,21 +1,20 @@
-﻿namespace COMP003B.Assignment6.Models
+﻿using System.ComponentModel.DataAnnotations;
+using Microsoft.EntityFrameworkCore;
+
+namespace COMP003B.Assignment6.Models
 {
     public class Actors
     {
-        internal object ActorID;
-        internal object DirectorID;
+        [Key]
+        public int ActorID { get; set; }
 
-        public int Id { get; set; }
-
+        public int MovieID { get; set; }
+        public int DirectorID { get; set; }
         public required string Name { get; set; }
-        public int ActorId { get; set; }
-        public int DirectorId { get; set; }
+
         public virtual Actors? Actor { get; set; }
         public virtual Directors? Director { get; set; }
 
         public virtual ICollection<Movies>? Movies { get; set; }
-
-        public int Oscars { get; set; }
- 
     }
 }

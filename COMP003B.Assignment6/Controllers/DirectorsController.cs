@@ -45,7 +45,7 @@ namespace COMP003B.Assignment6.Controllers
             // Get the movies the director directed
             ViewBag.Movies = from d in _context.Directors
                              join m in _context.Movies on d.DirectorID equals m.MovieID
-                             join a in _context.Actors on m.MovieID equals a.ActorId
+                             join a in _context.Actors on m.MovieID equals a.ActorID
                              where d.DirectorID == id
                              select a;
 

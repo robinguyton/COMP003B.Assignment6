@@ -113,7 +113,7 @@ namespace COMP003B.Assignment6.Migrations
                 nullable: true);
 
             migrationBuilder.AddPrimaryKey(
-                name: "PK_Directors",
+                name: "PK_DirectorID",
                 table: "Directors",
                 column: "DirectorID");
 
