@@ -146,7 +146,7 @@ namespace COMP003B.Assignment6.Controllers
             }
 
             var actors = await _context.Actors
-                .Include(a => a.Actor)
+                .Include(a => a.Name)
                 .Include(a => a.Director)
                 .FirstOrDefaultAsync(m => m.ActorID == id);
             if (actors == null)
